@@ -1,4 +1,167 @@
+/*colors*/
+$main-color: #9356dc;
+$second-color: #ff79da;
+$third-color: #99e2d0;
+$green: #008766;
+$light-grey: #f6f6f6;
+$medium-grey: #eaeaea;
+$dark-grey: #353535;
+$black: #000000;
+$white: #ffffff;
+
+$body-font: "Roboto";
+$title-font: "Shrikhand";
+
+body {
+  margin: 0%;
+}
 main-container {
-    max-width: 768px;
-    box-sizing: border-box;
+  max-width: 768px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: $body-font;
+}
+
+img {
+  object-fit: cover;
+}
+
+.title-left{
+    text-align: left;
+}
+
+@mixin font-size-1em {
+  font-size: 1em;
+  font-weight: 500;
+  font-family: $body-font;
+}
+@mixin font-size-title {
+  font-size: 1.125em;
+  font-weight: 500;
+  font-family: $body-font;
+}
+@mixin font-size-subtitle {
+  font-size: 1.0625em;
+  font-weight: 300;
+  font-family: $body-font;
+}
+
+@mixin flexbox-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+.bg__color--lightgrey {
+  background-color: $light-grey;
+}
+
+.navbar {
+  @include flexbox-column();
+  align-items: center;
+  background-color: $medium-grey;
+  &__logo {
+    padding: 14px 89px 13px 89px;
+    background-color: $white;
+  }
+}
+.navbar__location {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  input {
+    border: none;
+    max-width: 109px;
+    background-color: $medium-grey;
+    @include font-size-1em();
+    padding: 0%;
+    ::placeholder {
+      color: $dark-grey;
+    }
+  }
+}
+.container-intro {
+  /*ref cours sass openclass en anglais*/
+  @include flexbox-column();
+  align-items: center;
+  &__subtitle {
+    padding: 0px 30px;
+    font-weight: 300;
+  }
+  &__btn {
+    margin: 27px 78px 54px 79px;
+  }
+}
+.fonct {
+  padding: 48px 20px 68px 20px;
+}
+
+.operation {
+  @include flexbox-column();
+  align-items: center;
+  gap: 25px;
+  &__btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    @include border-radius(20px);
+  }
+}
+.resto {
+  padding-top: 54px;
+  padding-left: 17px;
+  .restocard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    
+    padding-bottom: 66px;
+    .card {
+      width: 340px;
+      background-color: $white;
+      @include border-radius(15px);
+      img {
+        @include border-radius(15px 15px 0px 0px);
+        width: 340px;
+        height: 251px;
+      }
+      .content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.content__description {
+  text-align: left;
+  padding-top: 16px;
+  padding-left: 13px;
+  &__title {
+    @include font-size-title();
+    margin: 0%;
+  }
+  &__subtitle {
+    @include font-size-subtitle();
+    margin-top:5px;
+    margin-bottom: 12px;
+  }
+}
+
+
+
+footer {
+  @include flexbox-column();
+  align-items: flex-start;
+  gap: 7px;
+  background-color: $dark-grey;
+  padding: 22px 25px;
+  @include font-size-1em();
+  color: $white;
 }
