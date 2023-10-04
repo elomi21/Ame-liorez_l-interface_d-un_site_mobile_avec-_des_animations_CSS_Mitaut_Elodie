@@ -16,6 +16,7 @@ $body-font: "Roboto";
 $title-font: "Shrikhand";
 
 body {
+  max-width: 768px;
   margin: 0;
   font-family: $body-font;
 }
@@ -39,12 +40,11 @@ img {
   font-size: 24px;
   font-weight: 700;
 }
-
-@mixin font-size-h3 {
+@mixin index-font-size-h3 {
   font-size: 1.1em;
   font-weight: 700;
 }
-@mixin font-size-p {
+@mixin index-font-size-p {
   font-size: 1.0625em;
   font-weight: 300;
 }
@@ -73,13 +73,92 @@ img {
 .bg__color--lightgrey {
   background-color: $light-grey;
 }
+.loading-page {
+  position: fixed;
+  background-color: $white;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: visible-page 3s cubic-bezier(1, 0.05, 0.95, -0.21) forwards;
+
+  @keyframes visible-page {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .circle {
+      border: 8px solid #ff79da;
+      border-top: 8px solid #9356dc;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      animation: spin 2s ease-in-out infinite;
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+      &__little {
+        opacity: 0.5;
+        border: 4px solid #9356dc;
+        border-bottom: 4px solid #ff79da;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spinbis 2s ease-in-out infinite;
+        position: absolute;
+      }
+      @keyframes spinbis {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+    .text {
+      position: absolute;
+      font-family: $title-font;
+      font-size: medium;
+      animation: word 2s infinite;
+    }
+    @keyframes word {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  }
+}
 
 header {
   .logo-container {
     margin: auto;
     height: 63px;
     @include flex-justify-align-center();
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
     .logo {
       max-width: 100%;
     }
@@ -91,6 +170,7 @@ header {
     @include flex-justify-align-center();
     gap: 17px;
     background-color: $medium-grey;
+    box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.1) inset;
     img {
       color: $dark-grey;
     }
@@ -220,10 +300,15 @@ header {
     gap: 18px;
     width: 91%;
     margin: auto;
-    }
     .card__container {
       border-radius: 15px;
       background-color: $white;
+      position: relative;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
       &__img {
         position: relative;
         img {
@@ -251,34 +336,49 @@ header {
         height: 30%;
         .content__left {
           height: 77px;
-          display: flex;
-          flex-direction: column;
+          @include flexbox-column();
           justify-content: center;
           padding-left: 13px;
           h3 {
-            @include font-size-h3();
+            @include index-font-size-h3();
             margin: 0;
             padding-bottom: 5px;
           }
           p {
-            @include font-size-p();
+            @include index-font-size-p();
             margin: 0;
           }
         }
-        .content__right {
-          padding-right: 25px;
-          .fa-solid {
-            font-size: 23px;
+      }
+      &__heart {
+        padding-right: 49px;
+        padding-bottom: 33px;
+        position: absolute;
+        right: 0px;
+        bottom: 20px;
+        .fa-regular {
+          font-size: 23px;
+          position: absolute;
+        }
+
+        .fa-solid {
+          opacity: 0;
+          font-size: 23px;
+          position: absolute;
+          background: linear-gradient(to top, #ff79da 0%, #9356dc 100%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          transition: opacity 400ms;
+
+          &:active {
+            opacity: 1;
           }
         }
       }
     }
   }
-  .restaurants__cards a{
-    text-decoration: none;
-  color: black;
-  }
-
+}
 
 footer {
   @include flexbox-column();
@@ -295,7 +395,11 @@ footer {
     gap: 11px;
   }
 }
-footer p {
+footer p{
   margin: 0%;
   padding-bottom: 7px;
-}
+   a{
+    text-decoration: none;
+    color: $white;
+   }
+  }
