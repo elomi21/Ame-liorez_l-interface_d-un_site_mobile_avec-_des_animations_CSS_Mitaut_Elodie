@@ -443,6 +443,45 @@ header .photo-plate {
 .menu .container-title__heart .fa-solid:active {
   opacity: 1;
 }
+.menu__starter {
+  animation: fadein 1.5s ease-in-out;
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  33% {
+    opciaty: 1;
+    transform: translateY(0px);
+  }
+}
+.menu__main-course {
+  animation: fadein1 1.5s ease-in-out;
+}
+@keyframes fadein1 {
+  33% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  66% {
+    opciaty: 1;
+    transform: translateY(0px);
+  }
+}
+.menu__dessert {
+  animation: fadein2 1.5s ease-in-out;
+}
+@keyframes fadein2 {
+  66% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opciaty: 1;
+    transform: translateY(0px);
+  }
+}
 .menu__starter, .menu__main-course, .menu__dessert {
   position: relative;
 }

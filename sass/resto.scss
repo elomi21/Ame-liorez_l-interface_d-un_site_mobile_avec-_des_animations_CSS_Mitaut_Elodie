@@ -96,7 +96,6 @@ header {
   padding-top: 32px;
   padding-bottom: 40px;
   gap: 40px;
-
   .container-title {
     display: flex;
     flex-direction: row;
@@ -131,6 +130,46 @@ header {
       }
     }
   }
+  &__starter {
+    animation: fadein 1.5s ease-in-out;
+    @keyframes fadein {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      33% {
+        opciaty: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
+  &__main-course {
+    animation: fadein1 1.5s ease-in-out;
+    @keyframes fadein1 {
+      33% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      66% {
+        opciaty: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
+  &__dessert {
+    animation: fadein2 1.5s ease-in-out;
+    @keyframes fadein2 {
+      66% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      100% {
+        opciaty: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
+
   &__starter,
   &__main-course,
   &__dessert {
