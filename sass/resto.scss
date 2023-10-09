@@ -55,7 +55,7 @@ $title-font: "Shrikhand";
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 12px;
+  margin: 12px 12px 0px 12px;
   position: relative;
   overflow: hidden;
 }
@@ -72,9 +72,6 @@ header {
       position: absolute;
       left: 17px;
       top: 14px;
-    }
-    .logo {
-      max-width: 136px;
     }
   }
   .photo-plate {
@@ -131,7 +128,7 @@ header {
     }
   }
   &__starter {
-    animation: fadein 1.5s ease-in-out;
+    animation: fadein 1.5s linear;
     @keyframes fadein {
       0% {
         opacity: 0;
@@ -144,7 +141,7 @@ header {
     }
   }
   &__main-course {
-    animation: fadein1 1.5s ease-in-out;
+    animation: fadein1 1.5s linear;
     @keyframes fadein1 {
       33% {
         opacity: 0;
@@ -157,7 +154,7 @@ header {
     }
   }
   &__dessert {
-    animation: fadein2 1.5s ease-in-out;
+    animation: fadein2 1.5s linear;
     @keyframes fadein2 {
       66% {
         opacity: 0;
@@ -227,6 +224,9 @@ header {
     }
   }
   .menu__cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0% 25%;
     max-width: 186px;
     height: 50px;
@@ -236,6 +236,7 @@ header {
     background: linear-gradient(0deg, #9356dc -11.44%, #ff79da 123.93%);
     @include box-shadow-main-second-color();
     color: $white;
+    text-decoration: none;
     @include font-size-1-em();
     transition-duration: 0.5s;
   }
@@ -243,5 +244,56 @@ header {
     color: $white;
     opacity: 0.8;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+@media (min-width: 768px) {
+  .menu {
+    .container-title {
+      justify-content: center;
+      width: 97%;
+      gap: 24px;
+      &__resto {
+        width: auto;
+      }
+    }
+    .menu__cta {
+      margin: 0% 41.5%;
+    }
+  }
+}
+@media (min-width: 1025px) {
+  header {
+    .logo-container {
+      .logo-back {
+        position: absolute;
+        left: 17px;
+        top: 33px;
+      }
+    }
+    .photo-plate {
+      height: 385px;
+      object-position: -8px -345px;
+    }
+  }
+
+  .menu {
+    width: 73%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 51px;
+    .container-title {
+      justify-content: center;
+      width: 97%;
+      gap: 24px;
+      &__resto {
+        width: auto;
+      }
+    }
+    &__starter,
+    &__main-course,
+    &__dessert {
+      margin: auto;
+      width: 60%;
+    }
   }
 }
