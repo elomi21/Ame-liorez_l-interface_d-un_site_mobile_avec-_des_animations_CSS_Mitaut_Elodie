@@ -129,7 +129,7 @@ header {
     }
   }
   &__starter {
-    animation: fadein 1.5s linear;
+    animation: fadein 1.5s linear 0.5;
     @keyframes fadein {
       0% {
         opacity: 0;
