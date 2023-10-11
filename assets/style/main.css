@@ -333,6 +333,7 @@ header .form-container input::placeholder {
   position: absolute;
   right: 0px;
   bottom: 20px;
+  cursor: pointer;
 }
 .restaurants .restaurants__card .card__container__heart .fa-regular {
   font-size: 23px;
@@ -348,7 +349,7 @@ header .form-container input::placeholder {
   -webkit-text-fill-color: transparent;
   transition: opacity 400ms;
 }
-.restaurants .restaurants__card .card__container__heart .fa-solid:active {
+.restaurants .restaurants__card .card__container__heart .fa-solid:hover {
   opacity: 1;
 }
 
@@ -512,7 +513,7 @@ header .photo-plate {
   -webkit-text-fill-color: transparent;
   transition: opacity 400ms;
 }
-.menu .container-title__heart .fa-solid:active {
+.menu .container-title__heart .fa-solid:hover {
   opacity: 1;
 }
 .menu__starter {
@@ -578,8 +579,6 @@ header .photo-plate {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  /*&:hover &__slide,*/
-  /*&:hover &__content,*/
 }
 .menu__starter__design:active .menu__starter__design__slide, .menu__starter__design:active .menu__main-course__design__slide, .menu__starter__design:active .menu__dessert__design__slide, .menu__main-course__design:active .menu__starter__design__slide, .menu__main-course__design:active .menu__main-course__design__slide, .menu__main-course__design:active .menu__dessert__design__slide, .menu__dessert__design:active .menu__starter__design__slide, .menu__dessert__design:active .menu__main-course__design__slide, .menu__dessert__design:active .menu__dessert__design__slide {
   transform: translateX(0px);
