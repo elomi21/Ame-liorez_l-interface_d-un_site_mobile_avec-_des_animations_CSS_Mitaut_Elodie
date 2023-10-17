@@ -15,6 +15,12 @@ $white: #ffffff;
 $body-font: "Roboto";
 $title-font: "Shrikhand";
 
+@mixin font-size-1-em {
+  font-size: 1em;
+  font-weight: 500;
+  font-family: $body-font;
+}
+
 @mixin resto-font-size-h1 {
   margin: 0;
   font-size: 1.75em;
@@ -59,7 +65,6 @@ $title-font: "Shrikhand";
   position: relative;
   overflow: hidden;
 }
-
 @mixin overflow-ellipsis {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -79,7 +84,6 @@ header {
     height: 275px;
   }
 }
-
 .menu {
   display: flex;
   flex-direction: column;
@@ -93,6 +97,28 @@ header {
   padding-top: 32px;
   padding-bottom: 40px;
   gap: 40px;
+
+  section {
+    opacity: 0;
+    animation: fadeIn 1000ms forwards;
+    @for $i from 2 through 4 {
+      &:nth-child(#{$i}) {
+        animation-delay: 300ms * $i;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
   .container-title {
     display: flex;
     flex-direction: row;
@@ -104,7 +130,6 @@ header {
       width: 86%;
     }
     &__heart {
-      
       .fa-regular {
         font-size: 23px;
         position: absolute;
@@ -128,46 +153,6 @@ header {
       }
     }
   }
-  &__starter {
-    animation: fadein 1.5s linear 0.5;
-    @keyframes fadein {
-      0% {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      33% {
-        opciaty: 1;
-        transform: translateY(0px);
-      }
-    }
-  }
-  &__main-course {
-    animation: fadein1 1.5s linear;
-    @keyframes fadein1 {
-      33% {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      66% {
-        opciaty: 1;
-        transform: translateY(0px);
-      }
-    }
-  }
-  &__dessert {
-    animation: fadein2 1.5s linear;
-    @keyframes fadein2 {
-      66% {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      100% {
-        opciaty: 1;
-        transform: translateY(0px);
-      }
-    }
-  }
-
   &__starter,
   &__main-course,
   &__dessert {
@@ -233,7 +218,6 @@ header {
     padding: 0px 19px 0px 19px;
     border-radius: 25px;
     background: linear-gradient(0deg, #9356dc -11.44%, #ff79da 123.93%);
-    @include box-shadow-main-second-color();
     color: $white;
     text-decoration: none;
     @include font-size-1-em();
