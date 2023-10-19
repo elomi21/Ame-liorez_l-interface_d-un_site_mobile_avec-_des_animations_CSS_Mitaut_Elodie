@@ -113,7 +113,7 @@ header .photo-plate {
   transform: translateX(0px);
 }
 .menu__starter__design:active .menu__starter__design__content, .menu__starter__design:active .menu__main-course__design__content, .menu__starter__design:active .menu__dessert__design__content, .menu__main-course__design:active .menu__starter__design__content, .menu__main-course__design:active .menu__main-course__design__content, .menu__main-course__design:active .menu__dessert__design__content, .menu__dessert__design:active .menu__starter__design__content, .menu__dessert__design:active .menu__main-course__design__content, .menu__dessert__design:active .menu__dessert__design__content {
-  width: calc(100% - 90px);
+  width: calc(100% - 94px);
 }
 .menu__starter__design__content, .menu__main-course__design__content, .menu__dessert__design__content {
   width: calc(100% - 30px);
